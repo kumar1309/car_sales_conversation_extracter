@@ -1,0 +1,197 @@
+/* Reset some default styles */
+body, h1, h2, p, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f5f5f5, #d3d3d3); /* Gradient overlay for the whole page */
+    color: #333; /* Dark text color for contrast */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    min-height: 100vh; /* Ensure body covers the full viewport height */
+    position: relative;
+}
+
+/* Header Styles */
+.main-header {
+    background: linear-gradient(135deg, #00bfae, #00897b); /* Cool gradient background for header */
+    color: #5007d8; /* Light text color */
+    text-align: center;
+    padding: 40px 20px; /* Reduced padding for a more compact look */
+    margin: 0; /* Remove margin to prevent unnecessary spacing */
+    width: 100%;
+    height: 30vh; /* Reduced height to make it more compact */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; /* Position relative for overlapping effect */
+    overflow: hidden; /* Hide overflow to ensure no scroll */
+}
+
+/* Header Description Styles */
+.header-description {
+    font-size: 1rem; /* Adjusted font size for compact design */
+    margin: 0; /* Remove margin */
+    font-weight: 300;
+    color: #e0f2f1; /* Light teal text color for better contrast */
+}
+
+/* Container Styles */
+.container {
+    max-width: 700px; /* Reduced width for a more compact layout */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #91b803; /* Background color for content area */
+    border-radius: 8px; /* Slightly smaller border radius */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased shadow for more depth */
+    position: relative;
+    top: -5vh; /* Adjust position to overlap header slightly */
+    z-index: 1; /* Ensure container is above the header */
+    animation: fadeInUp 1s ease-out; /* Fade-in and slide-up animation */
+}
+
+/* Remove GIF background from upload section */
+.upload-section {
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow for the section */
+    margin-top: 20px; /* Space above section */
+}
+
+/* Heading Styles */
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #004d40; /* Dark teal text color for contrast */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle text shadow for a more retro look */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition effects */
+    position: relative; /* Position relative for overlapping effect */
+    z-index: 2; /* Ensure headings are above other content */
+    width: 100%; /* Full width */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+/* Heading Specific Styles */
+h1 {
+    font-size: 4rem; /* Adjusted font size for a more balanced look */
+    animation: textGlow 1.5s infinite alternate; /* Glowing effect for h1 */
+    background: linear-gradient(135deg, #00bfae, #00897b); /* Cool gradient background */
+    color: #ffffff; /* White text color for better contrast */
+    text-align: center; /* Center text */
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    }
+}
+
+h2 {
+    font-size: 1.5rem; /* Adjusted font size */
+    padding: 10px; /* Added padding for background */
+    background: linear-gradient(135deg, #00bfae, #00897b); /* Cool gradient background for h2 */
+    color: #ffffff; /* White text color for better contrast */
+    border-radius: 5px; /* Rounded corners */
+    transition: background 0.3s ease, color 0.3s ease; /* Smooth transition effects */
+}
+
+/* Heading Hover Styles */
+h2:hover {
+    background: linear-gradient(135deg, #00897b, #00bfae); /* Inverted gradient on hover */
+    color: #ffffff; /* Ensure text remains white on hover */
+    transform: translateY(-3px); /* Slight upward movement on hover */
+}
+
+/* Paragraph Styles */
+p {
+    background: linear-gradient(135deg, #cfd8dc, #90a4ae); /* Subtle gradient background */
+    padding: 10px; /* Padding for background */
+    border-radius: 5px; /* Rounded corners */
+    color: #333; /* Dark text color for readability */
+    font-size: 1rem; /* Standard font size */
+    width: 100%; /* Full width */
+    margin: 0; /* Remove margin */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* File Input Styles */
+.file-input {
+    margin-bottom: 15px; /* Reduced space below */
+}
+
+.file-input label {
+    display: block;
+    font-size: 0.9rem; /* Smaller font size for a more compact look */
+    margin-bottom: 3px; /* Reduced margin */
+}
+
+/* File Input Field Styles */
+input[type="file"] {
+    width: 100%;
+    padding: 8px; /* Reduced padding */
+    border: 2px solid #b0bec5; /* Light border color */
+    background-color: #ffffff; /* White background color */
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+input[type="file"]:focus {
+    border-color: #00897b; /* Cool teal border color on focus */
+    background-color: #f1f8f6; /* Slightly lighter background on focus */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* More pronounced shadow on focus */
+}
+
+/* Submit Button Styles */
+.submit-button {
+    text-align: center;
+    margin-top: 15px; /* Reduced space above submit button */
+}
+
+button {
+    background-color: #00bfae; /* Cool teal background color */
+    color: #ffffff; /* White text color */
+    border: 2px solid transparent; /* Transparent border to maintain size */
+    padding: 10px 18px; /* Adjusted padding for a more compact button */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transitions for multiple properties */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for button */
+    position: relative;
+}
+
+button:focus {
+    outline: none; /* Remove default outline */
+}
+
+button:hover {
+    background-color: #00897b; /* Slightly darker shade of teal on hover */
+    transform: scale(1.03); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+button:active {
+    transform: scale(1); /* Reset zoom effect on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Reset shadow */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #004d40; /* Dark teal background color for footer */
+    color: #ffffff; /* Light text color */
+    text-align: center;
+    padding: 30px; /* Reduced padding */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 10; /* Ensure footer is above other content */
+}

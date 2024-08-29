@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results Dashboard</title>
+    <style>
+        .export-box {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f5f5dc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the label */
+.export-box label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Style for the dropdown menu */
+#export-select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+/* Style for dropdown menu on focus */
+#export-select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #f5f5dc, #8b4513); /* Cream to Brown gradient */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5dc;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        pre {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+            max-height: 300px;
+            margin-bottom: 40px;
+            white-space: pre-wrap;
+        }
+
+        .visualizations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 30px;
+    background-color: #f5f5dc; /* Cream background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px; /* Space inside the container */
+}
+
+        .visualizations img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        .export-links {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .export-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 25px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 1.2em;
+        }
+
+        .export-links a:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: #fff;
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-header">
+        <h1>Analytical Dashboard</h1>
+    
+    </div>
+    <div class="container">
+        
+
+       
+        <h3>The Data in JSON format of the following car sales conversations</h3>
+        <pre>{{ data }}</pre>
+
+        <h2>Visualizations</h2>
+        <div class="visualizations">
+            <div>
+                <h3>Customer Requirements</h3>
+                <img src="{{ requirements_image }}" alt="Customer Requirements">
+            </div>
+            <div>
+                <h3>Customer Objections</h3>
+                <img src="{{ objections_image }}" alt="Customer Objections">
+            </div>
+            <div>
+                <h3>Distribution of Car Colors</h3>
+                <img src="{{ car_colors_image }}" alt="Car Colors">
+            </div>
+            <div>
+                <h3>Popular Price Ranges</h3>
+                <img src="{{ price_ranges_image }}" alt="Price Ranges">
+            </div>
+            <div>
+                <h3>Preferred Car Types</h3>
+                <img src="{{ car_types_image }}" alt="Car Types">
+            </div>
+            <div>
+                <h3>Common Refurbishment Issues</h3>
+                <img src="{{ refurbishment_issues_image }}" alt="Refurbishment Issues">
+            </div>
+            <div>
+                <h3>Frequently Raised Objections</h3>
+                <img src="{{ frequent_objections_image }}" alt="Frequent Objections">
+            </div>
+        </div>
+
+        <h2>Export Functionality</h2>
+        <h3>Click to export analysis results </h3>
+        <center>
+        <div class="export-box">
+            <label for="export-select">Choose a file to download:</label>
+            <select id="export-select" onchange="handleDownload(this)">
+                <option value="">Select an option</option>
+                <option value="{{ requirements_csv }}">Download Requirements CSV</option>
+                <option value="{{ objections_csv }}">Download Objections CSV</option>
+                <option value="{{ car_colors_csv }}">Download Car Colors CSV</option>
+                <option value="{{ price_ranges_csv }}">Download Price Ranges CSV</option>
+                <option value="{{ car_types_csv }}">Download Car Types CSV</option>
+                <option value="{{ refurbishment_issues_csv }}">Download Refurbishment Issues CSV</option>
+                <option value="{{ frequent_objections_csv }}">Download Frequent Objections CSV</option>
+                <option value="{{ pdf_path }}">Download PDF Report</option>
+            </select>
+
+        </div>
+    </center>
+        
+        <script>
+        function handleDownload(selectElement) {
+            var url = selectElement.value;
+            if (url) {
+                window.location.href = url;
+            }
+        }
+        </script>
+        
+    </div>
+
+    <footer>
+        &copy; 2024 Car Sales Analysis | All Rights Reserved
+    </footer>
+</body>
+</html>
